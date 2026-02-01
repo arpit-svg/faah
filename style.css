@@ -201,7 +201,15 @@ body {
 
     .yes-btn {
         min-width: 100px;
-        z-index: 20;
+        z-index: 10;
+        /* Lower than No button */
+    }
+
+    .no-btn {
+        z-index: 50;
+        /* Always on top of growing Yes button */
+        position: relative;
+        /* Ensure z-index applies */
     }
 }
 
