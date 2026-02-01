@@ -1,0 +1,221 @@
+:root {
+    --bg-color: #FFF0F5;
+    /* Lavender Blush */
+    --accent-color: #FF69B4;
+    /* Hot Pink */
+    --text-color: #5D4037;
+    /* Brown (like bear/wood) */
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    /* Use dvh for mobile address bars */
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Allow scrolling if content is too tall (e.g. keyboard open) */
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: var(--text-color);
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    width: 90%;
+    max-width: 800px;
+    padding: 20px 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.gif-container {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.cute-gif {
+    height: 350px;
+    /* Big Size */
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.8s ease;
+    /* Slow transition */
+}
+
+.cute-gif:hover {
+    transform: scale(1.02) rotate(2deg);
+}
+
+.question,
+.success-message {
+    font-family: 'Pacifico', cursive;
+    font-size: 3.5rem;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px white;
+    animation: fadeIn 3s ease-in-out;
+    /* CRITICAL for "FAAAAAAAH" wrapping */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    line-height: 1.2;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 1.2rem 3rem;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.5s ease;
+    /* Slow hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* Improve touch response */
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+.yes-btn {
+    background: #4CAF50;
+    color: white;
+}
+
+.yes-btn:hover {
+    transform: scale(1.1);
+    background: #45a049;
+}
+
+.no-btn {
+    background: #FF5252;
+    color: white;
+}
+
+.no-btn:hover {
+    background: #e04848;
+}
+
+/* Background Hearts */
+.hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    color: rgba(255, 105, 180, 0.4);
+    animation: float 20s linear infinite;
+    /* Very Slow float */
+    bottom: -50px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .cute-gif {
+        height: auto;
+        max-height: 250px;
+        max-width: 90vw;
+    }
+
+    .question,
+    .success-message {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .buttons {
+        gap: 15px;
+        width: 100%;
+        flex-direction: column-reverse;
+        /* Puts "No" (2nd item) above "Yes" (1st item) */
+    }
+
+    .btn {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        flex: 1 1 auto;
+        max-width: 45%;
+        min-width: 120px;
+    }
+
+    .yes-btn {
+        min-width: 100px;
+        z-index: 20;
+    }
+}
+
+/* Very small screens */
+@media screen and (max-width: 380px) {
+
+    .question,
+    .success-message {
+        font-size: 1.7rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.2rem;
+        font-size: 1rem;
+        min-width: 100px;
+    }
+}

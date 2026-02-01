@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Panda 🐼</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Proposal State -->
+        <div class="proposal-content" id="proposal-content">
+            <div class="gif-container">
+                <!-- Primary: GitHub Raw Panda. Backup: Placeholder -->
+                <img src="https://raw.githubusercontent.com/gupta-ji6/panda/main/panda-icon.webp"
+                    onerror="this.src='https://placehold.co/400x400/ffc0cb/ffffff?text=Cute+Panda+Image'"
+                    alt="Cute Panda Asking" class="cute-gif main-img">
+            </div>
+
+            <h1 class="question">Will you be my Valentine?</h1>
+
+            <div class="buttons">
+                <button class="btn yes-btn" id="yesBtn">Yes</button>
+                <button class="btn no-btn" id="noBtn">No</button>
+            </div>
+        </div>
+
+        <!-- Success State -->
+        <div class="success-content hidden" id="success-content">
+            <div class="gif-container">
+                <!-- Using reliable GitHub Gist Raw URL for a Partying Cat -->
+                <img src="https://gist.githubusercontent.com/dumbmoron/ea9b6264e6b6183fd590e322d1afab51/raw/cat.gif"
+                    onerror="this.src='https://placehold.co/350x350/FFC0CB/5a2a2a/gif?text=Party+Animals!+🎉'"
+                    alt="Partying Cat" class="cute-gif success-img">
+            </div>
+            <h1 class="success-message">FAAAAAAAAAAAAAAAAH! <br> 🐼❤️🐼</h1>
+        </div>
+    </div>
+
+    <div class="hearts-container" id="hearts-container"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
